@@ -1,0 +1,53 @@
+转为数学问题  
+      1720 + 6000x = 2880y + 2380z
+	  求出最小x  
+    
+    
+    C# Code:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VIPCard
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x, y, z, result;
+            for(x = 1; ; x++)
+            {
+                result = 1720 + 6000 * x;
+                if (result > 0)
+                {
+                    for(y = 0; ; y++)
+                    {
+                        result = 1720 + 6000 * x - 2880 * y;
+                        if (result >= 0)
+                        {
+                            for (z = 0; ; z++)
+                            {
+                                result = 1720 + 6000 * x - 2880 * y - 2380 * z;
+                                if (result == 0)
+                                {
+                                    Console.WriteLine(x + "," + y + "," + z);
+                                    Console.ReadKey();
+                                }
+                                else if (result > 0)
+                                {
+                                    continue;
+                                }
+                                else break;
+                            }
+                            continue;
+                        }
+                        else break;
+                    }
+                    continue;
+                }
+            }
+        }
+    }
+}
